@@ -1,6 +1,6 @@
 # Java - List Queue Memebers Tutorial
 
-This project serves as a guide to help you build an application with FreeClimb. Specifically, the project will:
+This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/list-queue-members#section-java). Specifically, the project will:
 
 - Handle inbound calls
 - Place calls in a queue
