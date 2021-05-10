@@ -68,10 +68,10 @@ import com.vailsys.freeclimb.api.queue.member.MemberList;
 
 @RestController
 public class ListQueueMemberController {
-  // Get accountID and authToken from environment variables
+  // Get accountID and apiKey from environment variables
   private String baseUrl = System.getenv("HOST");
   private String accountId = System.getenv("ACCOUNT_ID");
-  private String authToken = System.getenv("AUTH_TOKEN");
+  private String apiKey = System.getenv("API_KEY");
 
   // To properly communicate with FreeClimb's API, set your FreeClimb app's
   // VoiceURL endpoint to '{yourApplicationURL}/InboundCall' for this example
@@ -84,7 +84,7 @@ public class ListQueueMemberController {
 
     try {
       // Create a FreeClimbClient object
-      FreeClimbClient client = new FreeClimbClient(accountId, authToken);
+      FreeClimbClient client = new FreeClimbClient(accountId, apiKey);
 
       if (request != null) {
         // Convert the JSON into a request object
@@ -242,7 +242,7 @@ public class ListQueueMemberController {
   public ArrayList<Queue> listQueues() {
 
     try {
-      FreeClimbClient client = new FreeClimbClient(accountId, authToken); // Create FreeClimbClient object
+      FreeClimbClient client = new FreeClimbClient(accountId, apiKey); // Create FreeClimbClient object
 
       // Invoke get method to retrieve the first page of queues with a matching alias
       QueueList queueList = client.queues.get();
@@ -272,7 +272,7 @@ public class ListQueueMemberController {
   @RequestMapping("/queueMembers")
   public ArrayList<Member> listQueueMembers(String queueId) {
     try {
-      FreeClimbClient client = new FreeClimbClient(accountId, authToken); // Create FreeClimbClient object
+      FreeClimbClient client = new FreeClimbClient(accountId, apiKey); // Create FreeClimbClient object
 
       // Invoke get method to retrieve initial list of queue member information
       MemberList memberList = client.queues.getMembersRequester(queueId).get();
